@@ -1,0 +1,46 @@
+#include <stdio.h>
+
+int main() {
+    // Define the dimensions of the 2D array
+    int rows, columns;
+    
+    // Get the dimensions from the user
+    printf("Enter the number of rows: ");
+    scanf("%d", &rows);
+    
+    printf("Enter the number of columns: ");
+    scanf("%d", &columns);
+    
+    // Declare the 2D array and 1D array for row sums
+    int matrix[rows][columns];
+    int rowSum[rows];
+    
+    // Initialize the rowSum array to 0
+    for (int i = 0; i < rows; i++) {
+        rowSum[i] = 0;
+    }
+    
+    // Input the elements of the 2D array
+    printf("Enter the elements of the matrix:\n");
+    for (int i = 0; i < rows; i++) {
+        for (int j = 0; j < columns; j++) {
+            printf("Element [%d][%d]: ", i, j);
+            scanf("%d", &matrix[i][j]);
+        }
+    }
+    
+    // Calculate the sum of each row and store it in the rowSum array
+    for (int i = 0; i < rows; i++) {
+        for (int j = 0; j < columns; j++) {
+            rowSum[i] += matrix[i][j];
+        }
+    }
+    
+    // Display the sum of each row
+    printf("\nSum of each row:\n");
+    for (int i = 0; i < rows; i++) {
+        printf("Sum of row %d: %d\n", i, rowSum[i]);
+    }
+    
+    return 0;
+}
